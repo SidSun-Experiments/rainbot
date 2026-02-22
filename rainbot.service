@@ -1,0 +1,16 @@
+[Unit]
+Description=Rainbot Telegram Bot
+Wants=pipewire.service wireplumber.service
+After=pipewire.service wireplumber.service network.target sound.target
+
+[Service]
+Type=simple
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+WorkingDirectory=/home/sids/stacks/rainbot
+ExecStart=/home/sids/stacks/rainbot/start.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
