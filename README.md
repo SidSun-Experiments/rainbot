@@ -48,6 +48,10 @@ You can start the bot by running the `start.sh` script:
 ./start.sh
 ```
 
+### Bluetooth Audio Streaming
+I use the bot to stream audio over bluetooth and since the BT connection in Linux is set up at user level, once there are no user sessions remaining, the BT connection is lost and/or pipewire audio server is terminated. 
+To workaround this, I have a SSH session from root to my user running all the time in a tmux session. 
+
 ### Running as a Systemd Service
 To ensure Rainbot runs in the background and starts on boot:
 1. Update paths in `rainbot.service`.
