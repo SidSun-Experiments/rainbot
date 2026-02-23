@@ -165,8 +165,8 @@ async def play_file(filename, reply_func):
         # We start it as a subprocess but don't wait for it
         subprocess = await asyncio.create_subprocess_exec(
             *mpv_cmd,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
+            stdout=asyncio.subprocess.DEVNULL,
+            stderr=asyncio.subprocess.DEVNULL
         )
 
     await reply_func(f"🎶 Playing: {os.path.basename(filename)}")
@@ -193,8 +193,8 @@ async def handle_url(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     process = await asyncio.create_subprocess_exec(
         *cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE
     )
 
     stdout, stderr = await process.communicate()
